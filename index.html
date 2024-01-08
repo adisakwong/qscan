@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="html5-qrcode.min.js"></script> -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <style>
+    .result{
+        background-color: green;
+        color:#fff;
+        padding:20px;
+    }
+    .row{
+        display:flex;
+    }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+          <div style="width:250px;" id="reader"></div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col" style="padding:5px;">
+        <h4>SCAN RESULT</h4>
+        <div id="result">Result Here</div>
+      </div>
+    </div>
+
+      <script type="text/javascript">
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+        }
+        function onScanError(errorMessage) {
+          //handle scan error
+        }
+
+        let config = {
+          fps: 10,
+          qrbox: {width: 150, height: 150},
+          rememberLastUsedCamera: true,
+          // Only support camera scan type.
+          supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+        };
+        let html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", config, /* verbose= */ false);
+        html5QrcodeScanner.render(onScanSuccess);
+        </script> 
+</body>
+</html>
