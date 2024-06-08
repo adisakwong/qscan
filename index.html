@@ -35,11 +35,11 @@
       <script type="text/javascript">
         MyRedirect();
         function MyRedirect(){
-            let myurl="http://209.15.98.146/hujat-info/index.php?p=";
+            let myurl="http://209.15.98.146/apps/hujat-info/index.php?p=";
             let inputElem = document.querySelector('input');
             inputElem.addEventListener('input', () => {
               if(inputElem.value.length >=13){
-                //window.location.replace("http://209.15.98.146/hujat-info/index.php?p=3960400280121");//redirect
+                //window.location.replace("http://209.15.98.146/apps/hujat-info/index.php?p=3960400280121");//redirect
                 window.location.replace(myurl + inputElem.value);//redirect
               }
             });
@@ -50,7 +50,7 @@
             strArray = qrCodeMessage.split("=");
             //document.getElementById('result').value = qrCodeMessage;
             document.getElementById('result2').value = strArray[1];
-            window.location.replace("http://209.15.98.146/hujat-info/index.php?p=" + strArray[1]);//redirect
+            window.location.replace("http://209.15.98.146/apps/hujat-info/index.php?p=" + strArray[1]);//redirect
            
         }
 
